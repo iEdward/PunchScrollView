@@ -258,7 +258,11 @@ NSString *const PunchScrollViewUserInfoTotalPagesNumberKey      = @"PunchScrollV
 
 - (void)setDelegate:(id<PunchScrollViewDelegate>)delegate
 {
-    [super setDelegate:self];
+    if (delegate) {
+        [super setDelegate:self];
+    }else {
+        [super setDelegate:delegate];
+    }
     
     if (![_privateDelegate isEqual:delegate])
     {
